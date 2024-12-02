@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>SSE spike</title>
+        <script src="./polyfill.js"></script>
+        <script type="module">
+            const es = new EventSourcePolyfill('http://localhost:4242/api/client/streaming', {headers: {'Authorization': ''}});
+            es.addEventListener('message', function(event) {
+                console.log(event);
+            });
+            es.addEventListener('error', function(event) {
+                console.log(event);
+            });
+        </script>
+    </head>
+    <body></body>
+</html>
+
